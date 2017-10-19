@@ -1,0 +1,14 @@
+---
+url:
+  description: "Management Node URL"
+  type: string
+  required: false
+login:
+  description: "Username"
+  type: string
+  required: false
+password:
+  description: "Password"
+  type: string
+  required: false
+  secret: true

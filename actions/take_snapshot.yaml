@@ -1,0 +1,22 @@
+---
+name: "take_snapshot"
+runner_type: "python-script"
+description: "Take a snapshot of the Pexip platform."
+enabled: true
+entry_point: "take_snapshot.py"
+
+parameters:
+  url:
+    description: Management node url if not specified in config.
+    type: string
+  user:
+    description: User if not specified in config.
+    type: string
+  password:
+    description: Password.
+    type: string
+    secret: true
+  path:
+    description: Path where snapshot should be stored.
+    type: string
+    required: true
