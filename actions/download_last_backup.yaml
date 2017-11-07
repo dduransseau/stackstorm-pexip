@@ -1,9 +1,9 @@
 ---
-name: "take_snapshot"
+name: "download_last_backup"
 runner_type: "python-script"
-description: "Take a system snapshot of the Pexip platform."
+description: "Dowload the last backup of the Pexip platform. Save it to the selected path."
 enabled: true
-entry_point: "take_snapshot.py"
+entry_point: "download_last_backup.py"
 
 parameters:
   url:
@@ -17,6 +17,6 @@ parameters:
     type: string
     secret: true
   path:
-    description: Path where snapshot will be stored.
+    description: Path where backup will be stored.
     type: string
     required: true

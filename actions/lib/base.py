@@ -1,5 +1,5 @@
 __author__ = "Damien Duransseau"
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 import logging
 from datetime import datetime
@@ -57,7 +57,7 @@ class Pexip:
         else:
             logging.error("No data retrieved from API")
 
-    def create_system_backup(self, passphrase=''):
+    def create_system_backup(self, passphrase):
         response = requests.post(
             self.MANAGEMENT_NODE_URL+self.create_backup_url,
             auth=self.MANAGEMENT_NODE_CREDENTIALS,
@@ -82,7 +82,7 @@ class Pexip:
                                                                 self.datetime_iso_format)
         last_backup_date = backup_list[last_backup_id]['date']
         for i, backup in enumerate(backup_list):
-            if type(backup_list[i]['date']) is str:
+            if type(backup_list[i]['date']) is unicode:
                 backup_list[i]['date'] = datetime.strptime(backup['date'], self.datetime_iso_format)
             if backup_list[i]['date'] > last_backup_date:
                 last_backup_date = backup_list[i]['date']

@@ -1,0 +1,23 @@
+---
+name: "create_backup"
+runner_type: "python-script"
+description: "Create a backup of the Pexip platform. The backup stay stored on the management node"
+enabled: true
+entry_point: "create_backup.py"
+
+parameters:
+  url:
+    description: Management node fqdn if not specified in config.
+    type: string
+  login:
+    description: User if not specified in config.
+    type: string
+  password:
+    description: Password.
+    type: string
+    secret: true
+  passphrase:
+    description: passphrase used to encrypt the backup file.
+    type: string
+    required: true
+    secret: true
